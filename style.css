@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-text-transform: capitalize;
+    text-transform: capitalize;
 }
 
 .main {
@@ -14,7 +14,8 @@ text-transform: capitalize;
     justify-content: center;
     align-items: center;
 }
-.gameArea{
+
+.gameArea {
     width: 70%;
     height: 700px;
     background-color: lightgrey;
@@ -22,8 +23,11 @@ text-transform: capitalize;
     border-radius: 30px;
     /* box-shadow: 2px 2px 10px 7px white; */
 }
-.p1 , .p2 ,.buttons{
-   
+
+.p1,
+.p2,
+.buttons {
+
     width: 33.33%;
     display: flex;
     justify-content: space-around;
@@ -33,7 +37,7 @@ text-transform: capitalize;
     border-radius: 20px;
 }
 
-.dicing{
+.dicing {
     width: 150px;
     height: 85px;
     border: none;
@@ -43,30 +47,92 @@ text-transform: capitalize;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column  ;
+    flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
-    color:purple;
+    color: purple;
 
 }
-.scoreP1,.scoreP2{
-font-size: 150px;
+
+.scoreP1,
+.scoreP2 {
+    font-size: 150px;
 
 
 }
-h1{
+
+h1 {
     color: purple;
     font-size: 40px;
 }
 
-.buttons{
-    background-color:white;
+.buttons {
+    background-color: white;
 }
-button{
+
+button {
     width: 130px;
     height: 50px;
     border: none;
-    background-color:  rgb(166, 164, 164);
+    background-color: rgb(166, 164, 164);
     color: purple;
-border-radius: 50px;
-font-size: 20px;
+    border-radius: 50px;
+    font-size: 20px;
+}
+
+
+
+@media screen and (max-width:400px) {
+
+    .gameArea {
+        width: 95%;
+        height: 300px;
+        border-radius: 10px;
+
+    }
+
+    .p1,
+    .p2,
+    .buttons {
+
+        width: 32.33%;
+        border-radius: 10px;
+    }
+
+
+    .dicing {
+        width: 80px;
+        height: 45px;
+        border: none;
+        background: rgb(166, 164, 164);
+        border-radius: 5px;
+        font-size: 15px;
+    }
+
+    .scoreP1,
+    .scoreP2 {
+        font-size: 70px;
+
+
+    }
+
+
+
+    h1 {
+        color: purple;
+        font-size: 20px;
+    }
+
+    .buttons {
+        background-color: white;
+    }
+
+    button {
+        width: 70px;
+        height: 30px;
+        border-radius: 30px;
+        font-size: 12px;
+    }
+
+
+
 }
