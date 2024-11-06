@@ -60,6 +60,16 @@
 
 }
 
+.trunMessege {
+   height: 100vh    ;
+    font-size: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+ background-color: lightblue;
+    color: purple;
+    text-align: center;
+
+}
+
 h1 {
     color: purple;
     font-size: 40px;
@@ -81,8 +91,11 @@ button {
 
 
 
-@media screen and (max-width:400px) {
-
+@media screen and (max-width:600px) {
+.img{
+    width: 60px;
+    height: 60px;
+}
     .gameArea {
         width: 95%;
         height: 300px;

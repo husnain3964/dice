@@ -1,10 +1,10 @@
-// let name1= prompt("what is your good name" , 'name')
-// let name2= prompt("what is your good name" , 'name')
+let name1 = prompt("what is your good name", "name");
+let name2 = prompt("what is your good name", "name");
+let setScore = +prompt("set score", "20,30,40...");
 
-// document.querySelector('.name-1').innerHTML=name1
-// document.querySelector('.name-2').innerHTML=name2
-
-//
+document.querySelector(".name-1").innerHTML = name1;
+document.querySelector(".name-2").innerHTML = name2;
+document.querySelector(".setScore").innerHTML = `score ${setScore}`;
 
 let turn = true;
 diceScore_1 = 0;
@@ -13,23 +13,14 @@ diceScore_2 = 0;
 document.querySelector(".roll").addEventListener("click", () => {
   let scoreP1 = document.querySelector(".dicingScore1");
   let scoreP2 = document.querySelector(".dicingScore2");
-  let rollDiceNum = Math.ceil(Math.random() * 6);
+  let rollDiceNum = Math.ceil(Math.random() * 5);
+  document.querySelector('.img').src=`./assets/${rollDiceNum}.png`
   console.log(rollDiceNum, diceScore_1);
 
   if (turn) {
     if (rollDiceNum !== 1) {
       diceScore_1 += rollDiceNum;
       scoreP1.textContent = diceScore_1;
-      document.querySelector("#hold").addEventListener("click", () => {
-      play1=document.querySelector(".scoreP1")
-      let finalNum= scoreP1.textContent;
-      play1.innerHTML =finalNum
-      diceScore_1= 0
-       turn = false
-      scoreP1.innerHTML=diceScore_1
-      
-          
-      });
     } else {
       diceScore_1 = 0;
       // diceScore_1 += rollDiceNum;
@@ -51,40 +42,39 @@ document.querySelector(".roll").addEventListener("click", () => {
   }
 
   console.log(scoreP1.textContent);
-  // console.log(scoreP2.textContent);
 });
-// let turn = true; // true for player 1, false for player 2
-// let diceScore1 = 0; // Score for player 1
-// let diceScore2 = 0; // Score for player 2
 
-// document.querySelector(".roll").addEventListener("click", () => {
-//     let score_p1 = document.querySelector(".dicingScore1");
-//     let score_p2 = document.querySelector(".dicingScore2");
-//     let newScore = Math.ceil(Math.random() * 6); // 1 to 6 ke liye
+document.querySelector("#hold").addEventListener("click", () => {
+  let scoreP1 = document.querySelector(".scoreP1");
+  let scoreP2 = document.querySelector(".scoreP2");
+  console.log("scorep1", scoreP1.innerHTML);
+  console.log("scorep2", scoreP2.innerHTML);
 
-//     console.log(newScore);
-
-//     if (turn) { // Agar player 1 ka turn hai
-//         if (newScore !== 1) {
-//             diceScore1 += newScore; // Score badhao
-//             score_p1.textContent = diceScore1; // Score update karo
-//         } else {
-//             diceScore1 = 0; // Agar score 1 aaye to score reset
-//             score_p1.textContent = 0;
-//             turn = false; // Turn player 2 ko do
-//         }
-//     } else { // Agar player 2 ka turn hai
-//         if (newScore !== 1) {
-//             diceScore2 += newScore; // Score badhao
-//             score_p2.textContent = diceScore2; // Score update karo
-//         } else {
-//             diceScore2 = 0; // Agar score 1 aaye to score reset
-//             score_p2.textContent = 0;
-//             turn = true; // Turn player 1 ko do
-//         }
-//     }
-
-//     // Border color change karna
-//     document.querySelector(".p1").style.border = turn ? "2px solid purple" : "none";
-//     document.querySelector(".p2").style.border = turn ? "none" : "2px solid red";
-// });
+  if (turn === true) {
+    scoreP1.textContent = parseInt(scoreP1.textContent) + diceScore_1;
+    diceScore_1 = 0;
+    document.querySelector(".dicingScore1").textContent = diceScore_1;
+    turn = false;
+  } else {
+    scoreP2.textContent = parseInt(scoreP2.textContent) + diceScore_2;
+    diceScore_2 = 0;
+    document.querySelector(".dicingScore2").textContent = diceScore_2;
+    turn = true;
+  }
+  let winMes = document.querySelector(".main");
+  if (scoreP1.textContent > setScore) {
+    document.querySelector('.main').style.display='none'
+    let win = document.createElement("h1");
+    win.textContent = `win ${name1}`;
+    win.classList.add("trunMessege");
+    console.log("win-1");
+    document.body.appendChild(win);
+  } else if (scoreP2.textContent > setScore) {
+    document.querySelector('.main').style.display='none'
+    let win = document.createElement("h1");
+    win.textContent = `win ${name2}`;
+    win.classList.add("trunMessege");
+    console.log("win-2");
+    document.body.appendChild(win);
+  }
+});
